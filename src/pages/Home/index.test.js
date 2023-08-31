@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import Home from "./index";
+import Page from "./index";
 
 describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
-    render(<Home />);
+    render(<Page />);
     await screen.findByText("Email");
     await screen.findByText("Nom");
     await screen.findByText("Prénom");
@@ -12,7 +12,7 @@ describe("When Form is created", () => {
 
   describe("and a click is triggered on the submit button", () => {
     it("the success message is displayed", async () => {
-      render(<Home />);
+      render(<Page />);
       fireEvent(
         await screen.findByText("Envoyer"),
         new MouseEvent("click", {

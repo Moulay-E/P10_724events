@@ -13,7 +13,17 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  // const {last} = useData()
+  const {data} = useData()
+
+  // data && data.events && data.events.length > 0
+  //   ? data.events[data.events.length - 1]
+  //   : null;
+  const last = data?.events?.[data.events.length - 1] ?? null;
+
+  // const last = data.last;
+  // const { data: { last } } = useData();
+
   return <>
     <header>
       <Menu />
