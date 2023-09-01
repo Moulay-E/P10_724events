@@ -14,8 +14,10 @@ const EventList = () => {
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const filteredEvents = (
-    (!type
+    // Add filter according to type , remove !type
+    (type
       ? data?.events
+      .filter(event => event.type === type)
       : data?.events) || []
   ).filter((event, index) => {
     if (
@@ -44,7 +46,7 @@ const EventList = () => {
             selection={Array.from(typeList)}
             onChange={(value) => (value ? changeType(value) : changeType(null))}
           />
-          {/* <div id="events" className="ListContainer">
+          <div id="events" className="ListContainer">
             {filteredEvents.map((event) => (
               <Modal key={event.id} Content={<ModalEvent event={event} />}>
                 {({ setIsOpened }) => (
@@ -58,8 +60,8 @@ const EventList = () => {
                 )}
               </Modal>
             ))}
-          </div> */}
-          <div id="events" className="ListContainer">
+          </div>
+          {/* <div id="events" className="ListContainer">
   {filteredEvents.map((event) => {
     // Log the current event
     console.log( "tesrt" ,event);
@@ -78,7 +80,7 @@ const EventList = () => {
       </Modal>
     );
   })}
-</div>
+</div> */}
 
 
           <div className="Pagination">
