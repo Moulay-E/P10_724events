@@ -11,7 +11,7 @@ const Slider = () => {
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
   );
-  console.log("fiktrer:", byDateDesc);
+  // console.log("fiktrer:", byDateDesc);
 
   const nextCard = () => {
     setTimeout(
