@@ -13,16 +13,9 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  // const {last} = useData()
   const {data} = useData()
 
-  // data && data.events && data.events.length > 0
-  //   ? data.events[data.events.length - 1]
-  //   : null;
   const last = data?.events?.[data.events.length - 1] ?? null;
-
-  // const last = data.last;
-  // const { data: { last } } = useData();
 
   return <>
     <header>
@@ -126,13 +119,18 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
-          small
-          label="boom"
-        />
+          {/* the components EventCard is call when last it define */}
+        { 
+          last &&
+          (
+          <EventCard
+            imageSrc={last?.cover}
+            title={last?.title}
+            date={new Date(last?.date)}
+            small
+            label="boom"
+          />
+          )}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
