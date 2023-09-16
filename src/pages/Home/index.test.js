@@ -27,7 +27,6 @@ describe("When Form is created", () => {
 
 });
 
-
 describe("When a page is created", () => {
   it("a list of events is displayed", () => {
     // to implement
