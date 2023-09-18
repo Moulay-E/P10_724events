@@ -14,7 +14,7 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const {data} = useData()
-
+console.log(useData());
   const last = data?.events?.[data.events.length - 1] ?? null;
 
   return <>
