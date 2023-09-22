@@ -1,6 +1,7 @@
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Page from "./index";
-
+import { api, DataProvider  } from "../../contexts/DataContext";
+import data from '../../../../public/events.json';
 
 
 describe("When Form is created", () => {
@@ -49,11 +50,18 @@ describe("When a page is created", () => {
     const { container } = render(<Page />);
     expect(container.querySelector("footer")).toBeInTheDocument();
   })
-  
+
   it("an event card, with the last event, is displayed", async () => {
-    const {container} = render(<Page/>)
-    const footerElement = container.querySelector('footer');
-    const eventCardInFooter = footerElement.querySelector('card-testid');
-    expect(eventCardInFooter).toBeDefined();
+
+api.loadData = jest.fn().mockReturnValue(data);
+ const {debug} = render(
+  <DataProvider>
+    <Page />
+  </DataProvider>
+);
+
+await screen.findByText("boom");
+
+debug(screen.getByText("boom"));
   })
 });
