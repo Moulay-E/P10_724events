@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Page from "./index";
 import { api, DataProvider  } from "../../contexts/DataContext";
-import data from '../../../../public/events.json';
+import data from '../../../public/events.json';
 
 
 describe("When Form is created", () => {
@@ -59,7 +59,6 @@ api.loadData = jest.fn().mockReturnValue(data);
     <Page />
   </DataProvider>
 );
-
 await screen.findByText("boom");
 
 debug(screen.getByText("boom"));
