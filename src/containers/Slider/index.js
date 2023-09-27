@@ -7,11 +7,9 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-  // console.log("Data returned from useData:", data);
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
   );
-  // console.log("fiktrer:", byDateDesc);
 
   const nextCard = () => {
     setTimeout(

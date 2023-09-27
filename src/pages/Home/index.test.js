@@ -54,13 +54,12 @@ describe("When a page is created", () => {
   it("an event card, with the last event, is displayed", async () => {
 
 api.loadData = jest.fn().mockReturnValue(data);
- const {debug} = render(
+ render(
   <DataProvider>
     <Page />
   </DataProvider>
 );
 await screen.findByText("boom");
 
-debug(screen.getByText("boom"));
   })
 });

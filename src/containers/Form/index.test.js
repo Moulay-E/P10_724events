@@ -1,5 +1,4 @@
 import { render, screen, fireEvent  } from "@testing-library/react";
-// import userEvent from '@testing-library/user-event';
 import Form from "./index";
 
 describe("When Events is created", () => {
@@ -27,27 +26,5 @@ describe("When Events is created", () => {
       expect(onSuccess).toHaveBeenCalled();
     });
   });
-
-// this test was changed
-// describe("and a click is triggered on the submit button", () => {
-//   it("the success action is called", async () => {
-//     const onSuccess = jest.fn();
-//     render(<Form onSuccess={onSuccess} />);
-//     // add text to form to test it correctly
-//     userEvent.type(screen.getByLabelText(/Nom/), 'John');
-//     userEvent.type(screen.getByLabelText(/Prenom/), 'Doe');
-//     userEvent.type(screen.getByLabelText(/Email/), 'john.doe@example.com');
-//     console.log(<Form/>)
-
-//     userEvent.click(screen.getByTestId("button-test-id"));
-
-//     await waitFor(() => {
-//       expect(screen.queryByText("En cours")).toBeNull();
-//     });  
-//     expect(onSuccess).toHaveBeenCalled();
-//   });
-// });
-
-
 
 });
